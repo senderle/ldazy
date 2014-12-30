@@ -231,7 +231,7 @@ class GibbsSampler(object):
                                                                #       And I thought it was because I needed to average the samples, but that didn't seem to make a
                                                                #       difference...
 
-                            # TODO: CURRENT PROJECT -- ironing out some stupid bugs involving vocab size vs. corpus size
+                            # TODO: make sure that I've ironed out the stupid bugs involving vocab size vs. corpus size
 
     def estimate_hyperparameters(self):
         #alpha, alphasum = self.minka_fixed_point(self.multi_sample_ctc,
@@ -390,7 +390,7 @@ class GibbsSampler(object):
         #params = [(param_sum * param_sum + param_sum) * q for q in Qvals]
 
         # And why can't I just do this?                     # TODO: My understanding of the dirichlet distribution values suggests that
-        params = [m * param_sum for m in means]             #       we ought to just be able to multiple the dirichlet params by the 
+        params = [m * param_sum for m in means]             #       we ought to just be able to multiply the dirichlet params by the 
                                                             #       sum. But the formula I derived does something totally different
         return params, param_sum                            #       that produces results with a different shape. Correlated? Not sure.
     
